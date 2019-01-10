@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+
         health -= amount;
         if (health <= 0f)
         {
@@ -19,7 +20,5 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 
 }

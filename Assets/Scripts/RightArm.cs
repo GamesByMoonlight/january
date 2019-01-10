@@ -16,7 +16,6 @@ public class RightArm : MonoBehaviour
             Shoot();
         }
 
-
     }
 
     void Shoot()
