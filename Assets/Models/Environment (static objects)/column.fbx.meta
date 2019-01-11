@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b5e3fb9cee03733428ae8433cb9c818e
+guid: a0d82219e8d09654f8bb779bfc1cb928
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: Material
     2300000: //RootNode
     3300000: //RootNode
-    4300000: column_aft
+    4300000: column_fore
   externalObjects: {}
   materials:
     importMaterials: 1

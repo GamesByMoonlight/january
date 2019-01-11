@@ -6,11 +6,11 @@ public class Shuriken : MonoBehaviour
 {
 
     void OnCollisionEnter(Collision col) {
-        
 
-        if (col.transform.CompareTag("Enemy")){
-            Enemy enemy = col.transform.GetComponent<Enemy>();
+        BaseEnemy enemy = col.transform.GetComponent<BaseEnemy>();
 
+        if (enemy)
+        {
             enemy.TakeDamage(50);
         }
 
