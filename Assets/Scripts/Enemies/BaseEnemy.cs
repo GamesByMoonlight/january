@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : BaseEnemy
-{
+// BaseEnemy should be used as a base class for all Enemy types
 
-    public override void Spawn()
+[RequireComponent(typeof(Collider))]
+public class BaseEnemy : MonoBehaviour
+{
+    public float health = 50f;
+
+    public void Spawn()
     {
-        Debug.Log("Hello World");
     }
 
-    public override void TakeDamage(float amount)
+    public void TakeDamage(float amount)
     {
         health -= amount;
 
@@ -23,8 +26,9 @@ public class Enemy : BaseEnemy
     void Die()
     {
         Destroy(gameObject);
-        
     }
+}
 
     
-}
+
+

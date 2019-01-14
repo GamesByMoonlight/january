@@ -65,4 +65,24 @@ public class GameManager : MonoBehaviour
 
         enemySpawners[SpawnerNumber].Spawn();
     }
+
+    public static void SpawnCustomEnemy(GameObject specialEnemy)
+    {
+        int SpawnerNumber = Random.Range(0, Manager.enemySpawners.Length);
+
+        Manager.enemySpawners[SpawnerNumber].Spawn(specialEnemy);
+    }
+
+    public static void SpawnCustomEnemy(GameObject specialEnemy, int index)
+    {
+        if(index >= 0 && index <= Manager.enemySpawners.Length)
+        {
+            Manager.enemySpawners[index].Spawn(specialEnemy);
+        } else
+        {
+            Debug.Log("Attempting to spawn " + specialEnemy + " but index " + index + " out of range");
+        }
+            
+
+    }
 }

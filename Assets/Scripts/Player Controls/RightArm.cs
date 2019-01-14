@@ -22,27 +22,21 @@ public class RightArm : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
-        //animator.SetBool("throwShuriken", true);
+        //animator.SetTrigger("throwShuriken");
 
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
-            
 
             Enemy enemy = hit.transform.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
-
-
+            
         }
-
-
+        
     }
-
-
-
+        
 }
 
 

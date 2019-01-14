@@ -16,27 +16,27 @@ public class EnemySpawner : MonoBehaviour
 
         if (defaultEnemy.GetComponent<BaseEnemy>() == null)
         {
-            Debug.Log("defaultEnemy property of " + this + " is not assigned an object with BaseEnemy component");
+            Debug.Log("defaultEnemy property of " + this + " is not assigned an object that is a BaseEnemy");
             return;
         }
             
         GameObject newEnemy = Instantiate(defaultEnemy, transform.position, Quaternion.identity);
 
-        newEnemy.GetComponent<BaseEnemy>().Spawn();
+        newEnemy.SendMessage("Spawn");
         newEnemy.transform.parent = transform;
     }
 
     public void Spawn(GameObject enemyToSpawn)
     {
-        if(enemyToSpawn.GetComponent<BaseEnemy>() == null)
+        if(enemyToSpawn.transform.GetComponent<BaseEnemy>() == null)
         {
-            Debug.Log("Attempting to spawn " + enemyToSpawn + " at " + this + " but " + enemyToSpawn +" is not inheriting BaseEnemy");
+            Debug.Log("Attempting to spawn " + enemyToSpawn + " at " + this + " but " + enemyToSpawn +" is not inheriting from BaseEnemy");
             return;
         }
         
         GameObject newEnemy = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
 
-        newEnemy.GetComponent<BaseEnemy>().Spawn();
+        newEnemy.SendMessage("Spawn");
         newEnemy.transform.parent = transform;
         
             
