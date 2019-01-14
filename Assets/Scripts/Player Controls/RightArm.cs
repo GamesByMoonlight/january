@@ -7,6 +7,7 @@ public class RightArm : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
     public Camera fpsCam;
+    //private Animator animator;
 
     // Update is called once per frame
     void Update()
@@ -21,10 +22,12 @@ public class RightArm : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
+        //animator.SetBool("throwShuriken", true);
 
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
+            
 
             Enemy enemy = hit.transform.GetComponent<Enemy>();
             if (enemy != null)
