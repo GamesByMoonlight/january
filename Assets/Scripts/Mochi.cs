@@ -5,17 +5,30 @@ using UnityEngine;
 public class Mochi : MonoBehaviour
 {
     public float eatTime = 2f;
+    
+    private float eatTimeRemaining;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void BeginEating()
     {
+        StartCoroutine(Eat());
         
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Eat()
     {
+        eatTimeRemaining = eatTime;
         
+        while(eatTimeRemaining > 0)
+        {
+            eatTimeRemaining -= Time.deltaTime;
+            yield return null;
+        }
+
+        FinishMochi();
+    }
+
+    void FinishMochi()
+    {
+        Destroy(gameObject);
     }
 }
