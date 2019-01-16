@@ -15,6 +15,8 @@ MonoBehaviour:
   damage: 10
   range: 100
   fpsCam: {fileID: 7666189794779882478}
+  shurikenPrefab: {fileID: 4805898834533026883, guid: 7ba2089a8738209449f82149951e019a,
+    type: 3}
 --- !u!1 &7666189794189441631
 GameObject:
   m_ObjectHideFlags: 0

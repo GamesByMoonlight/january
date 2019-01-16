@@ -9,6 +9,8 @@ public class RightArm : MonoBehaviour
     public Camera fpsCam;
     private Animator animator;
 
+    public GameObject shurikenPrefab;
+
     public static bool Eating { get; set; }
 
     void Start()
@@ -59,6 +61,9 @@ public class RightArm : MonoBehaviour
     void ThrowShuriken()
     {
         animator.SetTrigger("throwShuriken");
+
+        var shuriken = (GameObject)Instantiate(shurikenPrefab, transform.position, Quaternion.identity);
+        shuriken.GetComponent<Rigidbody>().AddForce(transform.forward * 100);
 
         // Make shuriken do shuriken things
         Debug.Log("Fling!!");
