@@ -6,6 +6,15 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Manager;
 
+    public static  int PlayerLife;
+
+    public static void DamagePlayer(int damage)
+    {
+        PlayerLife -= damage;
+    }
+
+
+
     // Controls for the spawn rate
     public static float SpawnRate { get; set; }  // Should be accessible from any script with GameManager.Manager.SpawnRate 
     [SerializeField]
