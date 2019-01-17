@@ -53,7 +53,7 @@ public class BaseEnemy : MonoBehaviour
             SetDestination();
         }
 
-
+        transform.LookAt(player.transform);
     }
 
     public GameObject player;
@@ -65,6 +65,7 @@ public class BaseEnemy : MonoBehaviour
         //Vector3 targetVector = _destination.transform.position;
         Vector3 targetVector = player.transform.position;
         _navMeshAgent.SetDestination(targetVector);
+        
 
     }
 
