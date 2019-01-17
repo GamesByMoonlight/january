@@ -29,6 +29,7 @@ public class Mochi : MonoBehaviour
 
     void FinishMochi()
     {
+        GameManager.CheckForEndGame();
         Destroy(gameObject);
     }
 }

@@ -65,8 +65,6 @@ public class RightArm : MonoBehaviour
         var shuriken = (GameObject)Instantiate(shurikenPrefab, transform.position, Quaternion.identity);
         shuriken.GetComponent<Rigidbody>().AddForce(transform.forward * 100);
 
-        // Make shuriken do shuriken things
-        Debug.Log("Fling!!");
     }
 
 }

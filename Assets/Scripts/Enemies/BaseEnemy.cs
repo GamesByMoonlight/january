@@ -39,6 +39,8 @@ public class BaseEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.layer = 11;  // All enemies should be on the enemy layer for collision purposes
+
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         if (_navMeshAgent == null)
         {
@@ -50,6 +52,8 @@ public class BaseEnemy : MonoBehaviour
 
             SetDestination();
         }
+
+
     }
 
     public GameObject player;

@@ -5,11 +5,9 @@ using UnityEngine;
 public class PlayerTarget : MonoBehaviour
 {
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-
         GameManager.DamagePlayer(10);
-
 
         //  Destroy(gameObject);
     }

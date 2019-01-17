@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Manager;
+    public Text textHealth;
+    public Text textWin;
+    public static Text textLose;
+    public static int PlayerLife=100;
+    public int mochiCount = 3;
 
-    public static  int PlayerLife;
-
-    public static void DamagePlayer(int damage)
-    {
-        PlayerLife -= damage;
-    }
-
-
+    private static MochiManager mochiManager;
 
     // Controls for the spawn rate
     public static float SpawnRate { get; set; }  // Should be accessible from any script with GameManager.Manager.SpawnRate 
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         #region Singleton for GameManager
-        // Singleton, so that there's only ever one Game Manager
+
         if (Manager != this)
         {
             Manager = this;
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
         #region Establish Spawn Rates
         // Set a default spawn rate if none is applied
-        if (SpawnRate == 0f)
+        if (SpawnRate <= 0.1f)
         {
             SpawnRate = 2f;
         }
@@ -48,11 +48,23 @@ public class GameManager : MonoBehaviour
         enemySpawners = FindObjectsOfType<EnemySpawner>();
         #endregion
 
+        #region Reference for MochiManager, initial Mochi spawn
 
+        mochiManager = FindObjectOfType<MochiManager>();
+        if (!mochiManager)
+        {
+            Debug.LogError("Could not find MochiManager in scene");
+        } else
+        {
+            mochiManager.SpawnMochi(mochiCount);
+        }
+        #endregion
 
+      
+ 
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
         #region Spawning logic
@@ -66,7 +78,66 @@ public class GameManager : MonoBehaviour
         }
         #endregion
 
+        textHealth.text = PlayerLife.ToString();
+
+        if (PlayerLife <= 1)
+        {
+            textWin.text = "GAME OVER";
+
+        }
     }
+
+    #region Methods related to damaging player, losing the level
+
+    
+
+
+    public static void DamagePlayer(int damage)
+    {
+        PlayerLife -= damage;    
+
+    }
+
+    #endregion
+
+    #region Methods related to winning the level
+    public static void CheckForEndGame()
+    {
+        Manager.StartCoroutine(Manager.DelayCounting());  
+    }
+
+    IEnumerator DelayCounting()
+    {
+        yield return new WaitForEndOfFrame();
+
+        try
+        {
+            if (mochiManager.CountMochi() <= 0)
+            {
+                Manager.PlayerWin();
+            }
+        } catch
+        {
+            Debug.LogWarning("Attempting to reference mochiManager, but mochiManager reference in GameManager is broken");
+        }
+
+
+    }
+
+    void PlayerWin()
+    {
+       // Debug.Log("Player wins!");
+
+        textWin.text = "Player wins!";
+
+    }
+
+
+
+
+    #endregion
+
+    #region Methods to control spawning enemies
 
     void SpawnNewEnemy()
     {
@@ -94,4 +165,6 @@ public class GameManager : MonoBehaviour
             
 
     }
+
+    #endregion  
 }
