@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -626,6 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textHealth: {fileID: 723372227}
+  textWin: {fileID: 0}
   mochiCount: 3
   SecondsToNextSpawn: 0
 --- !u!4 &1808620451
@@ -901,7 +902,7 @@ PrefabInstance:
         type: 3}
       propertyPath: defaultEnemy
       value: 
-      objectReference: {fileID: 1853180103280505119, guid: 6d47a2a45eea95d4588a19327d644dfa,
+      objectReference: {fileID: 1620376380, guid: 5bb989166c30765418f99870aebef554,
         type: 3}
     - target: {fileID: 6458395073494083395, guid: 66c60fe7edde7ce4aa9e34ac00652559,
         type: 3}
@@ -917,7 +918,7 @@ PrefabInstance:
         type: 3}
       propertyPath: defaultEnemy
       value: 
-      objectReference: {fileID: 1853180103280505119, guid: 6d47a2a45eea95d4588a19327d644dfa,
+      objectReference: {fileID: 1620376380, guid: 5bb989166c30765418f99870aebef554,
         type: 3}
     - target: {fileID: 794067084853555188, guid: 66c60fe7edde7ce4aa9e34ac00652559,
         type: 3}
@@ -933,7 +934,7 @@ PrefabInstance:
         type: 3}
       propertyPath: defaultEnemy
       value: 
-      objectReference: {fileID: 1853180103280505119, guid: 6d47a2a45eea95d4588a19327d644dfa,
+      objectReference: {fileID: 1620376380, guid: 5bb989166c30765418f99870aebef554,
         type: 3}
     - target: {fileID: 6135093891852206610, guid: 66c60fe7edde7ce4aa9e34ac00652559,
         type: 3}
@@ -949,7 +950,7 @@ PrefabInstance:
         type: 3}
       propertyPath: defaultEnemy
       value: 
-      objectReference: {fileID: 1853180103280505119, guid: 6d47a2a45eea95d4588a19327d644dfa,
+      objectReference: {fileID: 1620376380, guid: 5bb989166c30765418f99870aebef554,
         type: 3}
     - target: {fileID: 157186840465563386, guid: 66c60fe7edde7ce4aa9e34ac00652559,
         type: 3}
@@ -970,7 +971,7 @@ PrefabInstance:
         type: 3}
       propertyPath: defaultEnemy
       value: 
-      objectReference: {fileID: 1853180103280505119, guid: 6d47a2a45eea95d4588a19327d644dfa,
+      objectReference: {fileID: 1620376380, guid: 5bb989166c30765418f99870aebef554,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66c60fe7edde7ce4aa9e34ac00652559, type: 3}
