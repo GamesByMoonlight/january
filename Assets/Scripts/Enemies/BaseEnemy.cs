@@ -6,6 +6,7 @@ using System.Linq;
 
 // BaseEnemy should be used as a base class for all Enemy types
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(NavMeshAgent))]
 public class BaseEnemy : MonoBehaviour
@@ -36,6 +37,8 @@ public class BaseEnemy : MonoBehaviour
     Transform _destination;
 
     NavMeshAgent _navMeshAgent;
+
+    Animator anim;
 
 
     // Start is called before the first frame update
@@ -85,14 +88,10 @@ public class BaseEnemy : MonoBehaviour
        //WayPoints.AddRange(GameObject.FindGameObjectsWithTag("WayPoints").OrderBy(x => x.transform.position.z));
         WayPoints.AddRange(GameObject.FindGameObjectsWithTag("WayPoints").OrderByDescending(x => x.transform.position.z));
 
-
         //foreach (GameObject go in GameObject.FindGameObjectsWithTag("WayPoints").OrderBy(x => x.transform.position.x))
         //{
         //    WayPoints.Add(go);
         //}
-
-
-
 
         // Debug.Log( "Number of waypoints"+ WayPoints.Length.ToString());
         int minn = 0;
@@ -118,7 +117,7 @@ public class BaseEnemy : MonoBehaviour
         if (currentWayPoint <= zones-1)
         {
             //
-            Debug.Log("going to waypoint" + currentWayPoint);
+            //Debug.Log("going to waypoint" + currentWayPoint);
 
             _navMeshAgent.SetDestination(EnemyWayPoints[currentWayPoint].transform.position);
 
@@ -129,7 +128,7 @@ public class BaseEnemy : MonoBehaviour
             currentWayPoint++;
         }
 
-        if (currentWayPoint>=3)
+        if (currentWayPoint>=4)
         {
            
             transform.LookAt(player.transform.position);
@@ -146,6 +145,22 @@ public class BaseEnemy : MonoBehaviour
         }
 
 
+        if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance < 0.2f && currentWayPoint >= 4 )
+        {
+            _navMeshAgent.autoBraking = true;
+
+            anim = GetComponent<Animator>();
+
+
+            anim.SetBool("Attack", true);
+            transform.LookAt(player.transform.position);
+
+            _navMeshAgent.isStopped = true;
+
+
+
+        }
+
 
     }
 
@@ -153,7 +168,8 @@ public class BaseEnemy : MonoBehaviour
 
 
 
-}
+
+    }
 
 
     
