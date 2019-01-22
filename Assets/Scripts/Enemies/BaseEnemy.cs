@@ -28,13 +28,16 @@ public class BaseEnemy : MonoBehaviour
     }
     void Die()
     {
+        Instantiate(rays, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
         anim = GetComponent<Animator>();
         anim.SetTrigger("death");
         Destroy(gameObject, 1.5f);
+        DestroyImmediate(rays, true);
     }
 
 
-
+    [SerializeField]
+    GameObject rays;
     [SerializeField]
     Transform _destination;
 
