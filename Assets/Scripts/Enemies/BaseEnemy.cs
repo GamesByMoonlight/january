@@ -12,7 +12,7 @@ using System.Linq;
 public class BaseEnemy : MonoBehaviour
 {
     public float health = 50f;
-
+    
     public void Spawn()
     {
     }
@@ -26,11 +26,13 @@ public class BaseEnemy : MonoBehaviour
             Die();
         }
     }
-
     void Die()
     {
-        Destroy(gameObject);
+        anim = GetComponent<Animator>();
+        anim.SetTrigger("death");
+        Destroy(gameObject, 1.5f);
     }
+
 
 
     [SerializeField]
@@ -39,13 +41,11 @@ public class BaseEnemy : MonoBehaviour
     NavMeshAgent _navMeshAgent;
 
     Animator anim;
-
-
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
+        Animator anim = GetComponent<Animator>();
         gameObject.layer = 11;  // All enemies should be on the enemy layer for collision purposes
 
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
@@ -163,13 +163,13 @@ public class BaseEnemy : MonoBehaviour
 
 
     }
+    
 
 
 
 
 
-
-    }
+}
 
 
     
