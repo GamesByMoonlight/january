@@ -1502,9 +1502,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Armature/shoulder.R/brachi.R/radius.R/hand.R/shuriken
-    classID: 1
+    attribute: m_Enabled
+    path: Armature/shoulder.R/brachi.R/radius.R/hand.R/Dummy Shuriken
+    classID: 23
     script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -1592,10 +1592,10 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3399867952
-      attribute: 2086281974
+      path: 1544555922
+      attribute: 3305885265
       script: {fileID: 0}
-      typeID: 1
+      typeID: 23
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
@@ -7014,9 +7014,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Armature/shoulder.R/brachi.R/radius.R/hand.R/shuriken
-    classID: 1
+    attribute: m_Enabled
+    path: Armature/shoulder.R/brachi.R/radius.R/hand.R/Dummy Shuriken
+    classID: 23
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
