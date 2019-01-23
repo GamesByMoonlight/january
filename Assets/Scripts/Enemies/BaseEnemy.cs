@@ -19,6 +19,11 @@ public class BaseEnemy : MonoBehaviour
     {
     }
 
+    public void DealDamage(float amount)
+    {
+        GameManager.DamagePlayer(Mathf.FloorToInt(amount));
+    }
+
     public void TakeDamage(float amount)
     {
         health -= amount;
