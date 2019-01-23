@@ -60,10 +60,14 @@ public class RightArm : MonoBehaviour
 
     void ThrowShuriken()
     {
-        animator.SetTrigger("throwShuriken");
+        if(Eating == false)
+        {
+            animator.SetTrigger("throwShuriken");
 
-        var shuriken = (GameObject)Instantiate(shurikenPrefab, transform.position, Quaternion.identity);
-        shuriken.GetComponent<Rigidbody>().AddForce(transform.forward * 100);
+            var shuriken = (GameObject)Instantiate(shurikenPrefab, transform.position, Quaternion.identity);
+            shuriken.GetComponent<Rigidbody>().AddForce(transform.forward * 100);
+        }
+        
 
     }
 

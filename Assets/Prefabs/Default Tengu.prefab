@@ -4483,7 +4483,7 @@ GameObject:
   - component: {fileID: 1782508005}
   - component: {fileID: 1782508006}
   m_Layer: 0
-  m_Name: tengu_rig_beta
+  m_Name: Default Tengu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4567,12 +4567,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  rays: {fileID: 6081201801901209871, guid: c8a5036d56e880649b32d674d13fb5ef, type: 3}
   _destination: {fileID: 0}
   player: {fileID: 0}
   WayPoints: []
   EnemyWayPoints: []
   currentWayPoint: 0
+  rays: {fileID: 6081201801901209871, guid: c8a5036d56e880649b32d674d13fb5ef, type: 3}
+  smoke: {fileID: 4202390675704308203, guid: bb58a86aa2f67614aa6939f4ee19fe7c, type: 3}
 --- !u!195 &1782508006
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4592,7 +4593,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0.4
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &1785856273

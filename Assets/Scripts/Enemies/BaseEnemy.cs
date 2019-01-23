@@ -5,6 +5,8 @@ using UnityEngine.AI;
 using System.Linq;
 
 // BaseEnemy should be used as a base class for all Enemy types
+// Using this guarantees the spawner will spawn it correctly, and that the enemy can be destroyed
+// Also guarantees the Spawn and TakeDamage methods are avaliable to be referenced by other objects
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Collider))]
@@ -23,21 +25,19 @@ public class BaseEnemy : MonoBehaviour
 
         if (health <= 0f)
         {
-            Die();
+            SendMessage("Die");     // This hack will send the "Die" message to child classes, instead of calling this "Die"
         }
     }
+
+    /// Specialized death animations should be implemented by child classes
     void Die()
     {
-        Instantiate(rays, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
-        anim = GetComponent<Animator>();
-        anim.SetTrigger("death");
-        Destroy(gameObject, 1.5f);
-        DestroyImmediate(rays, true);
+        Debug.Log("Using default Die method on BaseEnemy");
+        Destroy(gameObject, 0.5f);
     }
 
 
-    [SerializeField]
-    GameObject rays;
+    
     [SerializeField]
     Transform _destination;
 
@@ -48,7 +48,7 @@ public class BaseEnemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        Animator anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         gameObject.layer = 11;  // All enemies should be on the enemy layer for collision purposes
 
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
