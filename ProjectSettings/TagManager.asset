@@ -8,6 +8,8 @@ TagManager:
   - Food
   - PlayerTarget
   - WayPoints
+  - ShurikenSpawnPoint
+  - ShurikenTurnPoint
   layers:
   - Default
   - TransparentFX

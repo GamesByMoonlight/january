@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+///  Class to control the behavior of the arms
+/// </summary>
 public class RightArm : MonoBehaviour
 {
     public float damage = 10f;
@@ -9,7 +13,6 @@ public class RightArm : MonoBehaviour
     public Camera fpsCam;
     private Animator animator;
 
-    public GameObject shurikenPrefab;
 
     public static bool Eating { get; set; }
 
@@ -36,7 +39,7 @@ public class RightArm : MonoBehaviour
 
         if(hit.transform == null || hit.transform.CompareTag("Food") == false)
         {
-            ThrowShuriken();
+            TryThrowShuriken();
         } else
         {
             if(Eating == false)
@@ -58,14 +61,11 @@ public class RightArm : MonoBehaviour
         animator.SetBool("eatMochi", Eating);
     }
 
-    void ThrowShuriken()
+    void TryThrowShuriken()
     {
         if(Eating == false)
         {
-            animator.SetTrigger("throwShuriken");
-
-            var shuriken = (GameObject)Instantiate(shurikenPrefab, transform.position, Quaternion.identity);
-            shuriken.GetComponent<Rigidbody>().AddForce(transform.forward * 100);
+            animator.SetTrigger("throwShuriken");  // Further logic for shuriken spawning is found in ShurikenThrow.cs
         }
         
 

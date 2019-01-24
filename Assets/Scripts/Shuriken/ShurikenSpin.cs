@@ -28,4 +28,9 @@ public class ShurikenSpin : MonoBehaviour
             transform.eulerAngles += new Vector3(0f, Time.deltaTime * 600, 0f);
         }
     }
+
+    public void StopRotation()
+    {
+        IsRotating = false;
+    }
 }
