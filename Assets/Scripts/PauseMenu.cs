@@ -55,6 +55,7 @@ public class PauseMenu : MonoBehaviour
         //load menu
         //Debug.Log("Restart");
         SceneManager.LoadScene("SampleScene"); //this should be a variable
+        Resume();
 
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shuriken : MonoBehaviour
 {
     private float duration = 0.0f;
-    private float MaxDuration = 5.0f;
+    private float MaxDuration = 10.0f;
 
     Rigidbody rb;
 
