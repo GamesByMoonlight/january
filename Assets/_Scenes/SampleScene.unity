@@ -2170,6 +2170,11 @@ PrefabInstance:
       propertyPath: invert
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7666189794559005849, guid: 61fd60204f0567846ad647fe492fe92e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7666189793583517896, guid: 61fd60204f0567846ad647fe492fe92e,
         type: 3}
       propertyPath: shurikenPrefab
