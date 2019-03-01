@@ -10,16 +10,32 @@ public class RightArm : MonoBehaviour
 {
     public float damage = 10f;
     public float range = 100f;
-    public Camera fpsCam;
+    private Transform raycastOrigin;
+    public Transform target;
     private Animator animator;
 
 
+    private Camera fpsCam;
+    
+
     public static bool Eating { get; set; }
+
+    // VR 
+    GvrControllerInputDevice gvrControllerInputDevice;
 
     void Start()
     {
         Eating = false;
         animator = GetComponent<Animator>();
+
+        raycastOrigin = GameObject.FindGameObjectWithTag("RaycastOrigin").transform;
+
+        fpsCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        
+
+        // VR
+        gvrControllerInputDevice = GvrControllerInput.GetDevice(GvrControllerHand.Dominant);
+
     }
 
     // Update is called once per frame
@@ -30,12 +46,22 @@ public class RightArm : MonoBehaviour
             PlayerAction();
         }
 
+        if (gvrControllerInputDevice.GetButtonDown(GvrControllerButton.TouchPadButton)){
+            PlayerAction();
+        }
+
+
+        Debug.DrawRay(raycastOrigin.transform.position, fpsCam.transform.forward);
     }
+
 
     void PlayerAction()
     {
         RaycastHit hit;
-        Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range);
+        
+        Physics.Raycast(raycastOrigin.transform.position, fpsCam.transform.forward, out hit, range);
+        
+
 
         if(hit.transform == null || hit.transform.CompareTag("Food") == false)
         {
@@ -54,6 +80,8 @@ public class RightArm : MonoBehaviour
         }
 
     }
+
+
 
     void FinishedEating()
     {

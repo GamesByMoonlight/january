@@ -15,7 +15,7 @@ public class TenguTroubleBGMPlayer : MonoBehaviour
 
     void Update()
     {
-        if (audioSources[1].time >= 69.333f)
+        if (audioSources[1].time >= 69.233f)
             audioSources[1].time = 0;
     }
 
